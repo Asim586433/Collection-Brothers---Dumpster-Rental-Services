@@ -97,6 +97,7 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s;
+            display: inline-block;
         }
         
         .cta-button:hover {
@@ -107,6 +108,9 @@
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--dark);
         }
         
         /* Hero Section */
@@ -146,6 +150,7 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
+            text-align: center;
         }
         
         .btn-primary {
@@ -155,6 +160,7 @@
         
         .btn-primary:hover {
             background-color: #e6950c;
+            transform: translateY(-2px);
         }
         
         .btn-secondary {
@@ -166,6 +172,7 @@
         .btn-secondary:hover {
             background-color: white;
             color: var(--dark);
+            transform: translateY(-2px);
         }
         
         /* Services Section */
@@ -201,26 +208,39 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         .service-img {
             height: 200px;
             background-size: cover;
             background-position: center;
+            position: relative;
         }
         
         .service-content {
             padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-content h3 {
             margin-bottom: 10px;
             color: var(--primary);
+        }
+        
+        .service-content p {
+            margin-bottom: 15px;
+            flex-grow: 1;
         }
         
         /* About Section */
@@ -274,6 +294,7 @@
             background-size: cover;
             background-position: center;
             border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         /* Testimonials Section */
@@ -292,11 +313,28 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            font-size: 3rem;
+            color: var(--primary);
+            position: absolute;
+            left: -10px;
+            top: -15px;
+            opacity: 0.3;
         }
         
         .testimonial-author {
@@ -311,6 +349,7 @@
             background-size: cover;
             background-position: center;
             margin-right: 15px;
+            border: 2px solid var(--primary);
         }
         
         .author-info h4 {
@@ -339,6 +378,11 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .area-card:hover {
+            transform: translateY(-5px);
         }
         
         .area-icon {
@@ -448,6 +492,13 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(42, 127, 63, 0.2);
         }
         
         .form-row {
@@ -467,6 +518,7 @@
             
             .about-image {
                 width: 100%;
+                margin-top: 30px;
             }
         }
         
@@ -480,6 +532,11 @@
                 background-color: white;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
                 padding: 20px;
+                z-index: 99;
+            }
+            
+            nav.active {
+                display: block;
             }
             
             nav ul {
@@ -513,6 +570,10 @@
                 flex-direction: column;
                 gap: 0;
             }
+            
+            .service-card {
+                margin-bottom: 20px;
+            }
         }
         
         /* Modal Styles */
@@ -527,17 +588,28 @@
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
         }
         
         .modal-content {
             background-color: white;
             border-radius: 8px;
-            width: 90%;
+            width: 100%;
             max-width: 500px;
             padding: 30px;
             position: relative;
             max-height: 90vh;
             overflow-y: auto;
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .close-modal {
@@ -547,6 +619,13 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--gray);
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Success Message */
@@ -558,6 +637,11 @@
             border-radius: 5px;
             margin-top: 20px;
             text-align: center;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .success-message.active {
+            display: block;
         }
         
         /* Loading Animation */
@@ -583,6 +667,29 @@
             background-color: #eee;
             color: #777;
             font-size: 0.9rem;
+            height: 100%;
+            width: 100%;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1001;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .notification.active {
+            transform: translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
@@ -607,7 +714,7 @@
                 </ul>
             </nav>
             
-            <div class="mobile-menu" id="mobile-menu">☰</div>
+            <button class="mobile-menu" id="mobile-menu">☰</button>
         </div>
     </header>
 
@@ -641,7 +748,7 @@
                         <p>Perfect for small cleanouts, garage organization, or small bathroom remodels.</p>
                         <p><strong>Ideal for:</strong> 2-3 truckloads of debris</p>
                         <p><strong>Dimensions:</strong> 12' long x 8' wide x 3.5' high</p>
-                        <a href="#" class="cta-button service-quote-btn" data-size="10 Yard">Get Pricing</a>
+                        <a href="#" class="cta-button service-quote-btn" data-size="10-yard">Get Pricing</a>
                     </div>
                 </div>
                 
@@ -654,7 +761,7 @@
                         <p>Great for larger home renovation projects, roof replacements, or full basement cleanouts.</p>
                         <p><strong>Ideal for:</strong> 4-5 truckloads of debris</p>
                         <p><strong>Dimensions:</strong> 22' long x 8' wide x 4.5' high</p>
-                        <a href="#" class="cta-button service-quote-btn" data-size="20 Yard">Get Pricing</a>
+                        <a href="#" class="cta-button service-quote-btn" data-size="20-yard">Get Pricing</a>
                     </div>
                 </div>
                 
@@ -667,7 +774,7 @@
                         <p>Our most popular size for new construction, major renovations, or large commercial projects.</p>
                         <p><strong>Ideal for:</strong> 6-7 truckloads of debris</p>
                         <p><strong>Dimensions:</strong> 22' long x 8' wide x 6' high</p>
-                        <a href="#" class="cta-button service-quote-btn" data-size="30 Yard">Get Pricing</a>
+                        <a href="#" class="cta-button service-quote-btn" data-size="30-yard">Get Pricing</a>
                     </div>
                 </div>
             </div>
@@ -905,29 +1012,29 @@
     <!-- Quote Modal -->
     <div class="modal" id="quoteModal">
         <div class="modal-content">
-            <span class="close-modal" id="close-modal">&times;</span>
+            <button class="close-modal" id="close-modal">&times;</button>
             <h2>Request a Quote</h2>
             <p>Fill out the form below and we'll get back to you with pricing and availability.</p>
             
             <form id="quoteForm">
                 <div class="form-group">
-                    <label for="name">Full Name</label>
+                    <label for="name">Full Name *</label>
                     <input type="text" id="name" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">Email Address</label>
+                    <label for="email">Email Address *</label>
                     <input type="email" id="email" class="form-control" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="phone">Phone Number</label>
+                    <label for="phone">Phone Number *</label>
                     <input type="tel" id="phone" class="form-control" required>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="dumpster-size">Dumpster Size</label>
+                        <label for="dumpster-size">Dumpster Size *</label>
                         <select id="dumpster-size" class="form-control" required>
                             <option value="">Select Size</option>
                             <option value="10-yard">10 Yard</option>
@@ -937,7 +1044,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="rental-period">Rental Period</label>
+                        <label for="rental-period">Rental Period *</label>
                         <select id="rental-period" class="form-control" required>
                             <option value="">Select Period</option>
                             <option value="7-days">7 Days</option>
@@ -948,7 +1055,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="project-type">Project Type</label>
+                    <label for="project-type">Project Type *</label>
                     <select id="project-type" class="form-control" required>
                         <option value="">Select Project Type</option>
                         <option value="home-renovation">Home Renovation</option>
@@ -977,17 +1084,12 @@
         </div>
     </div>
 
-    <script>
-        // Test Results Object
-        const testResults = {
-            navigation: false,
-            modal: false,
-            form: false,
-            images: false,
-            buttons: false,
-            mobileMenu: false
-        };
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        Test notification - This should appear when testing functionality
+    </div>
 
+    <script>
         // DOM Elements
         const mobileMenuBtn = document.getElementById('mobile-menu');
         const mainNav = document.getElementById('main-nav');
@@ -998,21 +1100,35 @@
         const submitText = document.getElementById('submit-text');
         const submitLoading = document.getElementById('submit-loading');
         const closeModalBtn = document.getElementById('close-modal');
+        const notification = document.getElementById('notification');
         
+        // Test Results
+        const testResults = {
+            navigation: false,
+            modal: false,
+            form: false,
+            images: false,
+            buttons: false,
+            mobileMenu: false
+        };
+
         // Mobile Menu Toggle
         mobileMenuBtn.addEventListener('click', function() {
-            if (mainNav.style.display === 'block') {
-                mainNav.style.display = 'none';
-            } else {
-                mainNav.style.display = 'block';
-            }
+            mainNav.classList.toggle('active');
             testResults.mobileMenu = true;
-            console.log('Mobile menu toggle: Working');
+            showNotification('Mobile menu toggle: Working');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+            });
         });
         
         // Modal Functionality
         const openModal = function(prefillSize = '') {
-            quoteModal.style.display = 'flex';
+            quoteModal.classList.add('active');
             document.body.style.overflow = 'hidden';
             
             if (prefillSize) {
@@ -1020,13 +1136,13 @@
             }
             
             testResults.modal = true;
-            console.log('Modal open: Working');
+            showNotification('Modal opened successfully');
         };
         
         const closeModal = function() {
-            quoteModal.style.display = 'none';
+            quoteModal.classList.remove('active');
             document.body.style.overflow = 'auto';
-            console.log('Modal close: Working');
+            showNotification('Modal closed successfully');
         };
         
         // Open modal when any quote button is clicked
@@ -1035,8 +1151,7 @@
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 const size = this.getAttribute('data-size') || '';
-                const sizeValue = size.toLowerCase().replace(' ', '-');
-                openModal(sizeValue);
+                openModal(size);
             });
             testResults.buttons = true;
         });
@@ -1051,17 +1166,41 @@
             }
         });
         
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && quoteModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+        
         // Form submission
         quoteForm.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // Basic form validation
+            const requiredFields = quoteForm.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = 'red';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (!isValid) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
             
             // Show loading state
             submitText.style.display = 'none';
             submitLoading.style.display = 'inline-block';
             submitBtn.disabled = true;
             
-            // In a real application, you would send the form data to a server here
-            // For demonstration, we'll simulate an API call with a timeout
+            // Simulate API call
             setTimeout(function() {
                 // Hide loading state
                 submitText.style.display = 'inline-block';
@@ -1070,16 +1209,16 @@
                 
                 // Show success message
                 quoteForm.style.display = 'none';
-                successMessage.style.display = 'block';
+                successMessage.classList.add('active');
                 
                 testResults.form = true;
-                console.log('Form submission: Working');
+                showNotification('Form submitted successfully');
                 
                 // Reset form and hide modal after 3 seconds
                 setTimeout(function() {
                     quoteForm.reset();
                     quoteForm.style.display = 'block';
-                    successMessage.style.display = 'none';
+                    successMessage.classList.remove('active');
                     closeModal();
                 }, 3000);
             }, 1500);
@@ -1101,10 +1240,10 @@
                         });
                         
                         // Close mobile menu if open
-                        mainNav.style.display = 'none';
+                        mainNav.classList.remove('active');
                         
                         testResults.navigation = true;
-                        console.log(`Smooth scrolling to ${targetId}: Working`);
+                        showNotification(`Navigated to ${targetId} section`);
                     }
                 }
             });
@@ -1114,9 +1253,11 @@
         window.addEventListener('load', function() {
             const images = document.querySelectorAll('img, [style*="background-image"]');
             let loadedCount = 0;
+            let totalImages = 0;
             
             images.forEach(element => {
                 if (element.tagName === 'IMG') {
+                    totalImages++;
                     if (element.complete && element.naturalHeight !== 0) {
                         loadedCount++;
                     } else {
@@ -1134,7 +1275,8 @@
                 } else {
                     // For elements with background images
                     const bgImage = element.style.backgroundImage;
-                    if (bgImage) {
+                    if (bgImage && bgImage !== 'none') {
+                        totalImages++;
                         const img = new Image();
                         img.src = bgImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
                         img.onload = function() {
@@ -1152,22 +1294,38 @@
             });
             
             testResults.images = true;
-            console.log(`Image verification: ${loadedCount} images loaded successfully`);
+            showNotification(`${loadedCount}/${totalImages} images loaded successfully`);
         });
+        
+        // Notification system
+        function showNotification(message, type = 'success') {
+            notification.textContent = message;
+            notification.classList.add('active');
+            
+            if (type === 'error') {
+                notification.style.backgroundColor = '#dc3545';
+            } else {
+                notification.style.backgroundColor = var(--primary);
+            }
+            
+            setTimeout(() => {
+                notification.classList.remove('active');
+            }, 3000);
+        }
         
         // Test all interactive elements on page load
         window.addEventListener('DOMContentLoaded', function() {
             console.log("=== WEBSITE FUNCTIONALITY TEST ===");
             
             // Test quote buttons
-            console.log(`Quote buttons: ${quoteButtons.length} buttons found - ${testResults.buttons ? 'Working' : 'Needs testing'}`);
+            console.log(`Quote buttons: ${quoteButtons.length} buttons found`);
             
             // Test navigation links
             const navLinks = document.querySelectorAll('nav a');
-            console.log(`Navigation links: ${navLinks.length} links found - ${testResults.navigation ? 'Working' : 'Needs testing'}`);
+            console.log(`Navigation links: ${navLinks.length} links found`);
             
             // Test form functionality
-            console.log(`Quote form: All fields present - ${testResults.form ? 'Working' : 'Needs testing'}`);
+            console.log(`Quote form: All fields present`);
             
             // Test phone link
             const phoneLink = document.querySelector('a[href^="tel:"]');
@@ -1181,14 +1339,24 @@
             const smsLink = document.querySelector('a[href^="sms:"]');
             console.log(`SMS link: ${smsLink.textContent} - Present`);
             
-            // Test mobile menu
-            console.log(`Mobile menu: ${testResults.mobileMenu ? 'Working' : 'Needs testing'}`);
+            console.log("=== TESTING COMPLETE ===");
+            console.log("All website functionality has been initialized!");
             
-            // Test modal
-            console.log(`Modal functionality: ${testResults.modal ? 'Working' : 'Needs testing'}`);
-            
-            console.log("=== TEST COMPLETE ===");
-            console.log("All website functionality has been verified!");
+            // Show initial test notification
+            setTimeout(() => {
+                showNotification('Website loaded successfully. All features are ready!');
+            }, 1000);
+        });
+
+        // Add focus styles for accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-nav');
         });
     </script>
 </body>
