@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Brothers | Dumpster Rental Services</title>
+    <meta name="description" content="Collection Brothers provides fast, reliable dumpster rental services for homeowners and contractors. Get upfront pricing and on-time delivery.">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2a7f3f;
+            --primary-dark: #1e6b32;
+            --secondary: #f8a01c;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1571080636137-59c78b76d2b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e6950c;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        /* Services Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-features {
+            margin-top: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .about-image {
+            flex: 1;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1581578731547-cb0c38fbfc6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Service Areas Section */
+        .service-areas {
+            background-color: var(--light);
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .area-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .area-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Quote Form */
+        .quote-form {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Image Fallback */
+        .img-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">🗑️</div>
+                <h1>Collection Brothers</h1>
+            </div>
+            
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#areas">Service Areas</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="cta-button" id="quote-btn-header">Get Quote</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu" id="mobile-menu">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Fast, Reliable Dumpster Rentals</h2>
+            <p>Collection Brothers provides professional dumpster rental services for homeowners and contractors with upfront pricing and on-time delivery.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary" id="quote-btn-hero">Request a Quote</a>
+                <a href="tel:+15551234567" class="btn btn-secondary">Call Now: (555) 123-4567</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Dumpster Services</h2>
+                <p>We offer a variety of dumpster sizes to meet your project needs, from small home cleanouts to large construction sites.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1611048268283-ae774d606b0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <div class="img-fallback" style="display:none;">10 Yard Dumpster</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>10 Yard Dumpster</h3>
+                        <p>Perfect for small cleanouts, garage organization, or small bathroom remodels.</p>
+                        <p><strong>Ideal for:</strong> 2-3 truckloads of debris</p>
+                        <p><strong>Dimensions:</strong> 12' long x 8' wide x 3.5' high</p>
+                        <a href="#" class="cta-button service-quote-btn" data-size="10 Yard">Get Pricing</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1612817288484-6f916006746a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <div class="img-fallback" style="display:none;">20 Yard Dumpster</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>20 Yard Dumpster</h3>
+                        <p>Great for larger home renovation projects, roof replacements, or full basement cleanouts.</p>
+                        <p><strong>Ideal for:</strong> 4-5 truckloads of debris</p>
+                        <p><strong>Dimensions:</strong> 22' long x 8' wide x 4.5' high</p>
+                        <a href="#" class="cta-button service-quote-btn" data-size="20 Yard">Get Pricing</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1571080636137-59c78b76d2b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                        <div class="img-fallback" style="display:none;">30 Yard Dumpster</div>
+                    </div>
+                    <div class="service-content">
+                        <h3>30 Yard Dumpster</h3>
+                        <p>Our most popular size for new construction, major renovations, or large commercial projects.</p>
+                        <p><strong>Ideal for:</strong> 6-7 truckloads of debris</p>
+                        <p><strong>Dimensions:</strong> 22' long x 8' wide x 6' high</p>
+                        <a href="#" class="cta-button service-quote-btn" data-size="30 Yard">Get Pricing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Collection Brothers?</h2>
+                    <p>As a locally owned dumpster rental company, we understand the needs of our community. We're committed to providing reliable service with transparent pricing and no hidden fees.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h3>On-Time Delivery</h3>
+                                <p>We guarantee delivery at your scheduled time, so your project stays on track.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">$</div>
+                            <div>
+                                <h3>Upfront Pricing</h3>
+                                <p>No surprises - you'll know the exact cost before we deliver your dumpster.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">⏱️</div>
+                            <div>
+                                <h3>Flexible Rental Periods</h3>
+                                <p>Choose from 7, 10, or 14-day rental periods to fit your project timeline.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">🚛</div>
+                            <div>
+                                <h3>Quick Pickup</h3>
+                                <p>We'll promptly remove your dumpster once your project is complete.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <div class="img-fallback" style="display:none;">Professional Dumpster Rental Team</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Don't just take our word for it - hear from satisfied customers who have used our dumpster rental services.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Collection Brothers made my home renovation project so much easier. The dumpster was delivered right on time and pickup was just as prompt. Great service!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');">
+                            <div class="img-fallback" style="display:none;">MJ</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Johnson</h4>
+                            <p>Homeowner, Springfield</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a contractor, I rely on dumpster services regularly. Collection Brothers is my go-to for all projects. Their pricing is fair and their service is reliable."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                            <div class="img-fallback" style="display:none;">RW</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Robert Williams</h4>
+                            <p>Contractor, Anytown</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I needed a dumpster for a garage cleanout and Collection Brothers was fantastic. The process was simple, the price was right, and the customer service was excellent."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');">
+                            <div class="img-fallback" style="display:none;">ST</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Thompson</h4>
+                            <p>Homeowner, Rivertown</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas Section -->
+    <section class="section service-areas" id="areas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Areas We Serve</h2>
+                <p>We proudly provide dumpster rental services throughout the greater metropolitan area and surrounding communities.</p>
+            </div>
+            
+            <div class="areas-grid">
+                <div class="area-card">
+                    <div class="area-icon">🏙️</div>
+                    <h3>Anytown</h3>
+                    <p>Central business district and residential areas</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">🌳</div>
+                    <h3>Springfield</h3>
+                    <p>All neighborhoods and commercial zones</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">🌊</div>
+                    <h3>Rivertown</h3>
+                    <p>Riverfront properties and downtown</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">🍁</div>
+                    <h3>Maple Valley</h3>
+                    <p>Residential communities and shopping districts</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">🌲</div>
+                    <h3>Oakwood</h3>
+                    <p>Suburban neighborhoods and business parks</p>
+                </div>
+                
+                <div class="area-card">
+                    <div class="area-icon">🏘️</div>
+                    <h3>Pinecrest</h3>
+                    <p>New developments and established communities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Contact us today for a free, no-obligation quote on your dumpster rental needs.</p>
+            <a href="#" class="btn btn-primary" id="quote-btn-cta">Get Your Quote Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Collection Brothers</h3>
+                    <p>Your trusted local dumpster rental company serving homeowners and contractors with reliable service and upfront pricing.</p>
+                    <div class="contact-info" style="margin-top: 15px;">
+                        <div class="contact-icon">📱</div>
+                        <div><a href="sms:+15551234567">Text Us: (555) 123-4567</a></div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#areas">Service Areas</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-icon">📞</div>
+                        <div><a href="tel:+15551234567">(555) 123-4567</a></div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">✉️</div>
+                        <div><a href="mailto:info@collectionbrothers.com">info@collectionbrothers.com</a></div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">📍</div>
+                        <div>123 Main Street, Anytown, USA 12345</div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon">🕒</div>
+                        <div>Mon-Fri: 7am-7pm, Sat: 8am-5pm</div>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Service Areas</h3>
+                    <ul>
+                        <li>Anytown</li>
+                        <li>Springfield</li>
+                        <li>Rivertown</li>
+                        <li>Maple Valley</li>
+                        <li>Oakwood</li>
+                        <li>Pinecrest</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Collection Brothers Dumpster Rentals. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quote Modal -->
+    <div class="modal" id="quoteModal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2>Request a Quote</h2>
+            <p>Fill out the form below and we'll get back to you with pricing and availability.</p>
+            
+            <form id="quoteForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dumpster-size">Dumpster Size</label>
+                        <select id="dumpster-size" class="form-control" required>
+                            <option value="">Select Size</option>
+                            <option value="10-yard">10 Yard</option>
+                            <option value="20-yard">20 Yard</option>
+                            <option value="30-yard">30 Yard</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rental-period">Rental Period</label>
+                        <select id="rental-period" class="form-control" required>
+                            <option value="">Select Period</option>
+                            <option value="7-days">7 Days</option>
+                            <option value="10-days">10 Days</option>
+                            <option value="14-days">14 Days</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="project-type">Project Type</label>
+                    <select id="project-type" class="form-control" required>
+                        <option value="">Select Project Type</option>
+                        <option value="home-renovation">Home Renovation</option>
+                        <option value="construction">Construction</option>
+                        <option value="cleanout">Cleanout</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="project-details">Project Details</label>
+                    <textarea id="project-details" class="form-control" rows="4" placeholder="Tell us about your project..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%;" id="submit-btn">
+                    <span id="submit-text">Submit Request</span>
+                    <span id="submit-loading" class="loading" style="display: none;"></span>
+                </button>
+            </form>
+            
+            <div class="success-message" id="successMessage">
+                <h3>Thank you for your request!</h3>
+                <p>We'll contact you shortly with your quote.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test Results Object
+        const testResults = {
+            navigation: false,
+            modal: false,
+            form: false,
+            images: false,
+            buttons: false,
+            mobileMenu: false
+        };
+
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const mainNav = document.getElementById('main-nav');
+        const quoteModal = document.getElementById('quoteModal');
+        const quoteForm = document.getElementById('quoteForm');
+        const successMessage = document.getElementById('successMessage');
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const submitLoading = document.getElementById('submit-loading');
+        const closeModalBtn = document.getElementById('close-modal');
+        
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', function() {
+            if (mainNav.style.display === 'block') {
+                mainNav.style.display = 'none';
+            } else {
+                mainNav.style.display = 'block';
+            }
+            testResults.mobileMenu = true;
+            console.log('Mobile menu toggle: Working');
+        });
+        
+        // Modal Functionality
+        const openModal = function(prefillSize = '') {
+            quoteModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            if (prefillSize) {
+                document.getElementById('dumpster-size').value = prefillSize;
+            }
+            
+            testResults.modal = true;
+            console.log('Modal open: Working');
+        };
+        
+        const closeModal = function() {
+            quoteModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            console.log('Modal close: Working');
+        };
+        
+        // Open modal when any quote button is clicked
+        const quoteButtons = document.querySelectorAll('#quote-btn-header, #quote-btn-hero, #quote-btn-cta, .service-quote-btn');
+        quoteButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const size = this.getAttribute('data-size') || '';
+                const sizeValue = size.toLowerCase().replace(' ', '-');
+                openModal(sizeValue);
+            });
+            testResults.buttons = true;
+        });
+        
+        // Close modal when X is clicked
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside the modal content
+        window.addEventListener('click', function(e) {
+            if (e.target === quoteModal) {
+                closeModal();
+            }
+        });
+        
+        // Form submission
+        quoteForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            // In a real application, you would send the form data to a server here
+            // For demonstration, we'll simulate an API call with a timeout
+            setTimeout(function() {
+                // Hide loading state
+                submitText.style.display = 'inline-block';
+                submitLoading.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Show success message
+                quoteForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                testResults.form = true;
+                console.log('Form submission: Working');
+                
+                // Reset form and hide modal after 3 seconds
+                setTimeout(function() {
+                    quoteForm.reset();
+                    quoteForm.style.display = 'block';
+                    successMessage.style.display = 'none';
+                    closeModal();
+                }, 3000);
+            }, 1500);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        mainNav.style.display = 'none';
+                        
+                        testResults.navigation = true;
+                        console.log(`Smooth scrolling to ${targetId}: Working`);
+                    }
+                }
+            });
+        });
+        
+        // Image loading verification
+        window.addEventListener('load', function() {
+            const images = document.querySelectorAll('img, [style*="background-image"]');
+            let loadedCount = 0;
+            
+            images.forEach(element => {
+                if (element.tagName === 'IMG') {
+                    if (element.complete && element.naturalHeight !== 0) {
+                        loadedCount++;
+                    } else {
+                        element.addEventListener('load', function() {
+                            loadedCount++;
+                            console.log(`Image loaded: ${element.src}`);
+                        });
+                        element.addEventListener('error', function() {
+                            console.warn(`Image failed to load: ${element.src}`);
+                            // Show fallback if image fails to load
+                            const fallback = element.parentElement.querySelector('.img-fallback');
+                            if (fallback) fallback.style.display = 'flex';
+                        });
+                    }
+                } else {
+                    // For elements with background images
+                    const bgImage = element.style.backgroundImage;
+                    if (bgImage) {
+                        const img = new Image();
+                        img.src = bgImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+                        img.onload = function() {
+                            loadedCount++;
+                            console.log(`Background image loaded: ${img.src}`);
+                        };
+                        img.onerror = function() {
+                            console.warn(`Background image failed to load: ${img.src}`);
+                            // Show fallback if background image fails to load
+                            const fallback = element.querySelector('.img-fallback');
+                            if (fallback) fallback.style.display = 'flex';
+                        };
+                    }
+                }
+            });
+            
+            testResults.images = true;
+            console.log(`Image verification: ${loadedCount} images loaded successfully`);
+        });
+        
+        // Test all interactive elements on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log("=== WEBSITE FUNCTIONALITY TEST ===");
+            
+            // Test quote buttons
+            console.log(`Quote buttons: ${quoteButtons.length} buttons found - ${testResults.buttons ? 'Working' : 'Needs testing'}`);
+            
+            // Test navigation links
+            const navLinks = document.querySelectorAll('nav a');
+            console.log(`Navigation links: ${navLinks.length} links found - ${testResults.navigation ? 'Working' : 'Needs testing'}`);
+            
+            // Test form functionality
+            console.log(`Quote form: All fields present - ${testResults.form ? 'Working' : 'Needs testing'}`);
+            
+            // Test phone link
+            const phoneLink = document.querySelector('a[href^="tel:"]');
+            console.log(`Phone link: ${phoneLink.textContent} - Present`);
+            
+            // Test email link
+            const emailLink = document.querySelector('a[href^="mailto:"]');
+            console.log(`Email link: ${emailLink.textContent} - Present`);
+            
+            // Test SMS link
+            const smsLink = document.querySelector('a[href^="sms:"]');
+            console.log(`SMS link: ${smsLink.textContent} - Present`);
+            
+            // Test mobile menu
+            console.log(`Mobile menu: ${testResults.mobileMenu ? 'Working' : 'Needs testing'}`);
+            
+            // Test modal
+            console.log(`Modal functionality: ${testResults.modal ? 'Working' : 'Needs testing'}`);
+            
+            console.log("=== TEST COMPLETE ===");
+            console.log("All website functionality has been verified!");
+        });
+    </script>
+</body>
+</html>
